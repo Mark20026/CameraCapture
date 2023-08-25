@@ -3,7 +3,16 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 
 class CameraScreen(Screen):
-    pass
+
+    def start(self):
+        pass
+
+    def stop(self):
+        pass
+
+    def capture(self):
+        pass
+
 
 
 class RootWidget(ScreenManager):
