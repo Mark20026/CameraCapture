@@ -1,5 +1,10 @@
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
+import time
+
+
+class ImageScreen(Screen):
+    pass
 
 
 class CameraScreen(Screen):
@@ -15,8 +20,11 @@ class CameraScreen(Screen):
         self.ids.camera.texture = None
 
     def capture(self):
-        self.ids.camera.export_to_png("captured_image.png")
-        print("Image captured and saved as captured_image.png")
+        current_time = time.strftime("%Y%m%d-%H%M%S")
+        filepath = f"files/{current_time}.png"
+        self.ids.camera.export_to_png(filepath)
+        print("Image captured and saved")
+        self.manager.current = "image_screen"
 
 
 class RootWidget(ScreenManager):
